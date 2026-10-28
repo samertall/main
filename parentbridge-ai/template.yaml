@@ -1,0 +1,123 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: ParentBridge AI - CDS powered school-family conversation assistant
+Parameters:
+  AdminApiKey:
+    Type: String
+    NoEcho: true
+    MinLength: 24
+    Description: Private admin API key. Do not put in public front-end source.
+  SesFromEmail:
+    Type: String
+    Default: ''
+    Description: Verified Amazon SES From email for real delivery
+  SmsOriginationIdentity:
+    Type: String
+    Default: ''
+    Description: Registered End User Messaging SMS origination identity (ARN or ID)
+  BedrockModelId:
+    Type: String
+    Default: ''
+    Description: Enabled Bedrock Converse compatible model or inference profile ID
+  EnableRealSend:
+    Type: String
+    Default: '0'
+    AllowedValues: ['0','1']
+    Description: Remain 0 until identity verification, opt-in and destination approval complete
+  AllowSimulation:
+    Type: String
+    Default: '0'
+    AllowedValues: ['0','1']
+    Description: Enable test inbox simulation via admin API (still sends only if enabled above)
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 384
+    Runtime: python3.12
+    Architectures: [arm64]
+Resources:
+  ContactTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - {AttributeName: pk, AttributeType: S}
+        - {AttributeName: sk, AttributeType: S}
+      KeySchema:
+        - {AttributeName: pk, KeyType: HASH}
+        - {AttributeName: sk, KeyType: RANGE}
+      TimeToLiveSpecification:
+        AttributeName: expires
+        Enabled: true
+      PointInTimeRecoverySpecification:
+        PointInTimeRecoveryEnabled: true
+      SSESpecification:
+        SSEEnabled: true
+  InboundTopic:
+    Type: AWS::SNS::Topic
+  InboundTopicPolicy:
+    Type: AWS::SNS::TopicPolicy
+    Properties:
+      Topics: [!Ref InboundTopic]
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: AllowSESReceiptRules
+            Effect: Allow
+            Principal: {Service: ses.amazonaws.com}
+            Action: sns:Publish
+            Resource: !Ref InboundTopic
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: '$default'
+  ConversationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src.handler.lambda_handler
+      CodeUri: .
+      Environment:
+        Variables:
+          APP_MODE: aws
+          DDB_TABLE: !Ref ContactTable
+          ADMIN_API_KEY: !Ref AdminApiKey
+          SES_FROM_EMAIL: !Ref SesFromEmail
+          SMS_ORIGINATION_ID: !Ref SmsOriginationIdentity
+          BEDROCK_MODEL_ID: !Ref BedrockModelId
+          SEND_ENABLED: !Ref EnableRealSend
+          ALLOW_SIMULATION: !Ref AllowSimulation
+      Policies:
+        - DynamoDBCrudPolicy: {TableName: !Ref ContactTable}
+        - Statement:
+          - Sid: SendViaSES
+            Effect: Allow
+            Action: [ses:SendEmail]
+            Resource: '*'
+          - Sid: SendViaSMS
+            Effect: Allow
+            Action: [sms-voice:SendTextMessage]
+            Resource: '*'
+          - Sid: InvokeBedrockModel
+            Effect: Allow
+            Action: [bedrock:InvokeModel]
+            Resource: '*'
+      Events:
+        Root:
+          Type: HttpApi
+          Properties: {ApiId: !Ref HttpApi, Path: /, Method: GET}
+        CatchAll:
+          Type: HttpApi
+          Properties: {ApiId: !Ref HttpApi, Path: '/{proxy+}', Method: ANY}
+        Inbound:
+          Type: SNS
+          Properties: {Topic: !Ref InboundTopic}
+Outputs:
+  DashboardUrl:
+    Value: !Sub 'https://${HttpApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/'
+  IncomingSnsTopicArn:
+    Value: !Ref InboundTopic
+  TableName:
+    Value: !Ref ContactTable

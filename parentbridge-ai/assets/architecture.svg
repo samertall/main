@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">ParentBridge AI AWS CDS architecture</title>
+<desc id="desc">Two-way SMS and email communications through AWS CDS, Amazon SNS, AWS Lambda, Amazon Bedrock, DynamoDB and an operator dashboard.</desc>
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0a1529"/><stop offset="1" stop-color="#123044"/></linearGradient>
+ <linearGradient id="acc" x2="1" y2="1"><stop stop-color="#69ebc4"/><stop offset="1" stop-color="#7ac7ef"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity=".28"/></filter>
+ <marker id="arr" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="#69e4c3"/></marker>
+ <style>text{font-family:Inter,Arial,sans-serif}.title{fill:#effaff;font-weight:800;font-size:45px;letter-spacing:-1px}.sub{fill:#93aec1;font-size:20px}.kicker{fill:#6fe7cb;font-size:15px;font-weight:800;letter-spacing:2.5px}.node{fill:#182d43;stroke:#3a566d;stroke-width:2;rx:18;filter:url(#shadow)}.big{fill:#e8f9ff;font-weight:750;font-size:24px}.small{fill:#9bb8c8;font-size:17px}.mini{fill:#9bb3c5;font-size:16px}.section{fill:#91b0c2;font-size:15px;font-weight:800;letter-spacing:2px}.wire{fill:none;stroke:#69e4c3;stroke-width:4;marker-end:url(#arr)}.wire2{fill:none;stroke:#6d9eb4;stroke-width:3;stroke-dasharray:9 8;marker-end:url(#arr)}.pill{fill:#1f4a46;stroke:#388d79;stroke-width:1}.pillText{fill:#9af2ce;font-size:14px;font-weight:800}.foot{fill:#a6bccc;font-size:16px}</style>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<circle cx="1460" cy="80" r="210" fill="#4ee3be" opacity=".055"/><circle cx="160" cy="900" r="220" fill="#67b3ea" opacity=".04"/>
+<text class="kicker" x="90" y="78">AWS COMMUNICATION DEVELOPER SERVICES · SOLUTION ARCHITECTURE</text>
+<text class="title" x="90" y="142">ParentBridge AI</text>
+<text class="sub" x="92" y="181">One contextual thread across SMS and email, with supervised AI and consent-aware delivery.</text>
+<text class="section" x="95" y="245">1 · FAMILY TOUCHPOINTS</text>
+<text class="section" x="584" y="245">2 · CONVERSATION ORCHESTRATION</text>
+<text class="section" x="1190" y="245">3 · RESPONSE + OPERATIONS</text>
+<!-- left channel nodes -->
+<rect class="node" x="90" y="285" width="380" height="154" rx="18"/><rect x="114" y="309" width="52" height="52" rx="12" fill="#285d60"/><text x="140" y="344" text-anchor="middle" fill="#8df3d6" font-size="29">↔</text>
+<text x="182" y="334" class="big">End User Messaging</text><text x="182" y="366" class="small">Two-way SMS · recipient consent</text><rect class="pill" x="113" y="391" width="138" height="29" rx="14"/><text x="181" y="410" text-anchor="middle" class="pillText">CDS RUNTIME</text>
+<rect class="node" x="90" y="485" width="380" height="154" rx="18"/><rect x="114" y="509" width="52" height="52" rx="12" fill="#374966"/><text x="140" y="545" text-anchor="middle" fill="#c1d8ff" font-size="30">@</text>
+<text x="182" y="534" class="big">Amazon SES</text><text x="182" y="566" class="small">Inbound receipts + outbound email</text><rect class="pill" x="113" y="592" width="138" height="29" rx="14"/><text x="181" y="611" text-anchor="middle" class="pillText">CDS RUNTIME</text>
+<!-- central SNS and Lambda -->
+<rect class="node" x="572" y="350" width="230" height="216" rx="18"/><circle cx="686" cy="415" r="37" fill="#2e595a"/><text x="686" y="430" text-anchor="middle" font-size="40" fill="#87f1ca">SNS</text>
+<text x="687" y="492" text-anchor="middle" class="big">Amazon SNS</text><text x="687" y="522" text-anchor="middle" class="small">Trusted inbound events</text>
+<rect class="node" x="900" y="350" width="251" height="216" rx="18"/><circle cx="1024" cy="415" r="37" fill="#29515b"/><text x="1024" y="429" text-anchor="middle" font-size="35" fill="#98e5ff">λ</text>
+<text x="1025" y="492" text-anchor="middle" class="big">AWS Lambda</text><text x="1025" y="522" text-anchor="middle" class="small">Channel and intent router</text>
+<path class="wire" d="M470 361 H528 Q542 361 542 375 V410 Q542 425 558 425 H572"/>
+<path class="wire" d="M470 562 H528 Q542 562 542 550 V506 Q542 490 558 490 H572"/>
+<path class="wire" d="M802 457 H898"/>
+<!-- right downstream -->
+<rect class="node" x="1216" y="300" width="300" height="124" rx="18"/><text x="1243" y="339" class="big">Amazon Bedrock</text><text x="1243" y="366" class="small">Converse · grounded answers</text><text x="1243" y="391" class="mini">Escalation guardrails</text>
+<rect class="node" x="1216" y="466" width="300" height="124" rx="18"/><text x="1243" y="505" class="big">Amazon DynamoDB</text><text x="1243" y="531" class="small">Shared conversation history</text><text x="1243" y="556" class="mini">Consent · idempotency</text>
+<path class="wire" d="M1151 411 H1184 Q1199 411 1199 396 V361 H1215"/>
+<path class="wire2" d="M1151 507 H1197 V528 H1215"/>
+<path class="wire2" d="M1216 562 H1199 V599 Q1199 619 1176 619 H1025 V566"/>
+<!-- cross channel output and dashboard -->
+<path class="wire2" d="M1024 350 V273 H506 V285"/>
+<text x="790" y="297" fill="#9cdecf" font-size="15" text-anchor="middle">Consent-aware replies via SES / SMS</text>
+<rect class="node" x="572" y="681" width="579" height="118" rx="18"/><rect x="595" y="704" width="72" height="72" rx="13" fill="#315458"/>
+<text x="631" y="751" fill="#86f2d4" text-anchor="middle" font-size="36">UI</text>
+<text x="689" y="731" class="big">Operator dashboard</text><text x="689" y="759" class="small">Inbox · opt-ins · channel switch · staff handoff</text><text x="689" y="786" class="mini">HTTPS API · administrator authentication</text>
+<path class="wire2" d="M1025 566 V679"/>
+<rect x="90" y="695" width="380" height="88" rx="14" fill="#183c3f" stroke="#2b6662"/><text x="115" y="727" fill="#8bedcb" font-size="18" font-weight="800">SAFETY BY DESIGN</text><text x="115" y="754" class="mini">STOP opt-out · escalation · no auto-booking</text>
+<text x="90" y="861" class="foot">Demo mode: rules + simulated sending. AWS mode: real SDK calls after identity approval and deployment.</text><text x="1511" y="860" text-anchor="end" class="pillText">PARENTBRIDGE · 2026</text>
+</svg>

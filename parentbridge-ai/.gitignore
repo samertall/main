@@ -1,0 +1,13 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.env.*
+!.env.example
+.venv/
+*.zip
+.DS_Store
+coverage.xml
+.video-temp/
+
+.devpost-hackathon-state.json

@@ -1,0 +1,62 @@
+[
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/00.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/00.wav",
+    "title": "One conversation. Every channel.",
+    "narration_duration": 15.8
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/01.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/01.wav",
+    "title": "The customer problem",
+    "narration_duration": 16.3
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/02.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/02.wav",
+    "title": "A unified family inbox",
+    "narration_duration": 14.9
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/03.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/03.wav",
+    "title": "Two-way conversation",
+    "narration_duration": 15.8
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/04.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/04.wav",
+    "title": "SMS to email. No restart.",
+    "narration_duration": 15.4
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/05.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/05.wav",
+    "title": "Human judgment for sensitive needs",
+    "narration_duration": 15.8
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/06.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/06.wav",
+    "title": "Consent-aware outreach",
+    "narration_duration": 13.4
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/07.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/07.wav",
+    "title": "The right to opt out",
+    "narration_duration": 15.1
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/08.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/08.wav",
+    "title": "A better operational picture",
+    "narration_duration": 14.7
+  },
+  {
+    "slide": "/mnt/data/parentbridge-ai/.video-temp/09.png",
+    "audio": "/mnt/data/parentbridge-ai/.video-temp/09.wav",
+    "title": "Built around real AWS services",
+    "narration_duration": 14.6
+  }
+]
