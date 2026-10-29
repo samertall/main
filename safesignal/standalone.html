@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#08131e">
+  <meta name="description" content="SafeSignal is a free, private, on-device message-checking companion that explains common scam warning signs. No uploads. No accounts. No false promises.">
+  <meta property="og:title" content="SafeSignal — Pause. Check. Proceed with confidence.">
+  <meta property="og:description" content="A local-first companion for understanding suspicious messages and links, with transparent caution signals and safer next steps.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20128%20128%22%3E%3Crect%20width%3D%22128%22%20height%3D%22128%22%20rx%3D%2230%22%20fill%3D%22%23123b37%22/%3E%3Cpath%20d%3D%22M64%2013%20105%2027v32c0%2030-15%2046-41%2056C38%20105%2023%2089%2023%2059V27Z%22%20fill%3D%22none%22%20stroke%3D%22%238ce9c6%22%20stroke-width%3D%227%22/%3E%3Cpath%20d%3D%22M42%2062%2057%2077%2087%2046%22%20fill%3D%22none%22%20stroke%3D%22%238ce9c6%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3C/svg%3E%0A">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <style>
+:root{color-scheme:dark;--bg:#07131d;--base:#0c1a25;--side:#0b1923;--surface:#10212d;--stroke:#263c47;--line:#1d3340;--text:#f4f7f8;--muted:#9bb0bc;--mint:#8ce9c6;--amber:#f5c77a;--lilac:#bcb0f1;--red:#ffb0a4;--radius:20px;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-synthesis:none}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-size:15px;line-height:1.5}button,textarea{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid var(--mint);outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.6}.skip-link{position:absolute;left:16px;top:-80px;background:var(--mint);color:#06221d;padding:10px 18px;z-index:100;border-radius:8px}.skip-link:focus{top:12px}.app-shell{display:grid;grid-template-columns:263px minmax(0,1fr);min-height:100vh}.sidebar{background:#0b1923;display:flex;flex-direction:column;border-right:1px solid #1b303b;padding:32px 17px 26px;position:sticky;top:0;height:100vh;min-height:710px}.brand{display:flex;gap:12px;align-items:center;padding:0 12px 48px}.brand-symbol{width:42px;height:42px;color:var(--mint);display:grid;place-items:center;border-radius:14px;background:#163c38;border:1px solid #276255}.brand-symbol svg{width:28px;height:28px}.brand strong{letter-spacing:-.85px;font-size:21px;font-weight:760;display:block;line-height:1.2}.brand small{font-size:11px;color:#88a6b1;letter-spacing:.2px}.brand-dot{color:var(--mint)}.side-label{font-size:10px;letter-spacing:2px;color:#7d97a5;font-weight:800;margin:0 12px 16px}.nav-menu{display:flex;flex-direction:column;gap:7px}.nav-item{color:#a8bfcb;border:1px solid transparent;display:flex;gap:15px;text-align:left;align-items:center;background:transparent;border-radius:11px;padding:13px 14px;width:100%;font-size:13px;font-weight:620}.nav-item>span:first-child{font-size:21px;font-weight:400;width:23px;text-align:center;line-height:1}.nav-item.active{background:#1d403d;color:#b6f5dd;border-color:#2b6658}.nav-item:hover:not(.active){background:#132734;color:#e3eff2}.nav-arrow{margin-left:auto;font-size:21px}.sidebar-bottom{margin-top:auto}.privacy-tile{border:1px solid #315248;background:linear-gradient(140deg,#14342f,#132b2e);padding:20px 18px 18px;border-radius:16px}.privacy-symbol{font-size:31px;color:#a2ebcf}.privacy-kicker{font-size:9px;font-weight:800;letter-spacing:1.7px;color:#9ddfc5;margin:5px 0 9px}.privacy-tile h3{font-size:17px;letter-spacing:-.35px;line-height:1.3;margin:0 0 9px}.privacy-tile p:not(.privacy-kicker){font-size:12px;color:#adcac2;line-height:1.65;margin:0 0 20px}.privacy-tile-foot{border-top:1px solid #34534c;padding-top:12px;color:#d0f2e4;font-size:11px;font-weight:650;display:flex;align-items:center;gap:7px}.dot-online{width:7px;height:7px;border-radius:50%;background:#87ecc1;box-shadow:0 0 0 3px #87ecc118;display:inline-block;flex:0 0 auto}.side-footer{font-size:10px;line-height:1.8;color:#678391;padding:13px 12px 0;margin-bottom:0}.main-shell{min-width:0;background:#081722}.topbar{height:76px;border-bottom:1px solid #1d3540;padding:0 clamp(24px,4.5vw,70px);display:flex;align-items:center;justify-content:space-between}.breadcrumbs{font-size:10px;letter-spacing:1.2px;font-weight:800;display:flex;gap:14px;align-items:center;color:#d4e4e7}.crumb-muted{color:#6f8b98}.top-actions{display:flex;align-items:center;gap:22px}.top-privacy{display:inline-flex;align-items:center;gap:9px;font-size:11px;color:#acc5c7;border:1px solid #21443f;background:#122a2b;padding:8px 13px;border-radius:100px}.avatar{display:grid;place-items:center;width:33px;height:33px;border:1px solid #537267;background:linear-gradient(130deg,#22493f,#1b383b);color:#bdffe0;font-weight:800;border-radius:50%}main{max-width:1540px;margin:0 auto;padding:36px clamp(24px,4.5vw,70px) 50px}.view[hidden]{display:none}.hero{min-height:292px;background:radial-gradient(circle at 89% 35%,#235047aa 0,#1c3b3c77 23%,transparent 45%),linear-gradient(114deg,#14392f 0,#132b33 50%,#143039 100%);border:1px solid #2c554d;border-radius:24px;position:relative;overflow:hidden;display:flex;justify-content:space-between;padding:33px 50px 30px}.hero-copy{z-index:2;max-width:650px}.eyebrow,.mini-label{font-size:10px;letter-spacing:2px;color:#92ecc4;font-weight:840}.eyebrow{display:inline-flex;gap:9px;align-items:center}.sparkle{font-size:17px}.hero h1{font-size:clamp(39px,4vw,57px);letter-spacing:-2.6px;line-height:1.09;margin:17px 0 14px;font-weight:790}.hero h1 em,.page-title h1 em{font-style:normal;color:var(--mint)}.hero-copy>p{font-size:14px;line-height:1.75;max-width:530px;color:#b9d0cf;margin:0}.hero-chips{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.hero-chips span{border:1px solid #467166;background:#18483e80;color:#c1f6e2;border-radius:100px;padding:6px 13px;font-size:10px;font-weight:700}.check-icon{font-style:normal;color:var(--mint);margin-right:6px}.hero-art{width:275px;min-width:235px;align-self:stretch;position:relative}.art-shield{width:155px;height:160px;position:absolute;top:36px;left:50px;filter:drop-shadow(0 8px 21px #58deb544)}.art-shield svg{height:100%;width:100%}.art-orbit{position:absolute;border:1px dashed #80d4b564;border-radius:50%;transform:rotate(-23deg)}.orbit-one{height:228px;width:228px;right:5px;top:0}.orbit-two{height:300px;width:300px;right:-30px;top:-36px;border-color:#97d9bc22}.art-shadow{position:absolute;width:140px;height:30px;border-radius:50%;background:#3fbd9077;filter:blur(28px);bottom:6px;right:52px}.orbit-spark{position:absolute;color:var(--mint);font-size:30px}.orbit-spark-one{right:4px;top:27px}.orbit-spark-two{left:-10px;bottom:28px}.art-floating{position:absolute;right:0;bottom:23px;background:#143f3d;border:1px solid #427f72;padding:9px 13px;color:#97dbbf;font-size:9px;letter-spacing:1px;line-height:1.35;transform:rotate(-5deg);border-radius:8px}.art-floating strong{color:white}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:38px 0 24px}.section-head h2{font-size:24px;letter-spacing:-.9px;margin:5px 0 4px}.section-head p:not(.mini-label){color:#9bb5c0;font-size:13px;margin:0}.mini-label{margin:0}.section-meta{color:#839eac;font-size:11px;padding-bottom:5px;white-space:nowrap}.small-mark{margin-right:7px;color:var(--mint);font-size:16px}.workspace-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}.panel{background:linear-gradient(130deg,#10232f,#10212c);border:1px solid #28404c;border-radius:19px;min-width:0;overflow:hidden}.panel-header{display:flex;align-items:center;gap:13px;padding:23px 24px 20px}.panel-icon{width:41px;height:41px;flex:0 0 41px;border-radius:12px;display:grid;place-items:center;font-size:21px}.lilac-icon{background:#302a4a;color:#c8bcfa}.mint-icon{background:#1f3e39;color:#93f0cd}.panel-header h3{font-size:16px;letter-spacing:-.35px;margin:0 0 2px}.panel-header p{font-size:11px;color:#8ca7b5;margin:0}.panel-right{margin-left:auto;align-self:start}.step-tag{font-size:9px;color:#8cabb8;border:1px solid #2d4652;padding:5px 8px;border-radius:6px;letter-spacing:1px;font-weight:800}.input-panel{padding-bottom:18px}.field-label,.sample-title{font-size:10px;font-weight:750;letter-spacing:1.2px;color:#9db5c0;display:block;margin:4px 24px 9px}textarea{display:block;background:#0b1924;border:1px solid #304754;color:#e4eff1;width:calc(100% - 48px);margin:0 24px;border-radius:12px;padding:16px 17px;font-size:13px;line-height:1.9;min-height:194px;resize:vertical;max-height:340px;transition:border-color .15s}textarea:focus{border-color:#77c9aa;outline:1px solid #77c9aa}textarea::placeholder{color:#66818f}.input-bottom{display:flex;justify-content:space-between;gap:12px;font-size:10px;color:#7d9aa8;padding:11px 25px 17px}.divider-line{height:1px;background:#243945;margin:0 24px 16px}.sample-title{margin-bottom:11px}.example-row{display:flex;gap:6px;flex-wrap:wrap;margin:0 24px 22px}.example-pill{font-size:10px;color:#b2c7d0;background:#142b36;border:1px solid #2c4652;border-radius:8px;padding:8px 10px;transition:background .2s}.example-pill.selected,.example-pill:hover{background:#244c42;color:#d0f6e6;border-color:#49826c}.input-actions{display:flex;align-items:center;justify-content:space-between;margin:0 24px}.button-reset{background:transparent;border:0;color:#a3bfc9;font-size:12px;padding:11px}.button-reset:hover{color:white}.button-primary{background:#90edc8;border:1px solid #c4ffe6;border-radius:9px;color:#0d2e29;font-weight:800;display:flex;align-items:center;gap:11px;padding:12px 16px;font-size:12px;box-shadow:0 6px 22px #4ed5a324}.button-primary:hover{background:#adf5d9}.output-panel{display:flex;flex-direction:column}.output-panel .panel-header{padding-bottom:19px}.result-body{padding:0 24px 20px;flex:1}.risk-banner{display:flex;gap:14px;align-items:flex-start;border:1px solid #466c5b;background:linear-gradient(115deg,#1c4239,#18332f);border-radius:12px;padding:18px 17px;min-height:122px}.risk-high{background:linear-gradient(115deg,#402d2a,#352b29);border-color:#805851}.risk-medium{background:linear-gradient(115deg,#433927,#332f25);border-color:#8f784a}.risk-low{background:linear-gradient(115deg,#1c3f39,#1e3532);border-color:#486f62}.risk-empty{background:#1b303b;border-color:#35515d}.status-glyph{display:grid;place-items:center;width:37px;height:37px;border-radius:10px;font-size:24px;flex:0 0 37px;background:#ffffff18;color:#ffe2a9}.risk-low .status-glyph{color:#9be9ce}.risk-high .status-glyph{color:#ffc5ad}.risk-copy span{color:#ecc9a0;font-size:9px;letter-spacing:1.1px;font-weight:800}.risk-low .risk-copy span{color:#96edc8}.risk-copy h4{margin:3px 0 6px;font-size:20px;letter-spacing:-.5px}.risk-copy p{font-size:11px;line-height:1.65;color:#c7d1d0;margin:0}.result-headline{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:18px 0 10px}.result-headline strong{font-size:12px}.result-headline span{font-size:10px;color:#90acb9}.finding-list{display:flex;flex-direction:column;gap:8px;max-height:240px;overflow:auto}.finding{display:flex;gap:10px;align-items:flex-start;background:#142b37;border:1px solid #2c4550;border-radius:9px;padding:10px 12px}.finding-indicator{font-size:14px;color:#ffc8a2;padding-top:1px}.finding h5{font-size:11px;margin:0 0 3px}.finding p{font-size:10px;color:#99b4c2;margin:0;line-height:1.55}.empty-finding{font-size:11px;color:#88a4b0;background:#122733;border:1px dashed #304a57;border-radius:10px;padding:13px 12px;margin:0}.destinations-heading{margin-top:18px}.neutral-hint{white-space:nowrap}.url-list{display:flex;flex-direction:column;gap:7px}.destination{display:flex;justify-content:space-between;align-items:center;gap:9px;background:#142a35;border:1px solid #2a444d;padding:8px 11px;border-radius:8px}.destination strong{font-size:11px;font-weight:670;overflow-wrap:anywhere}.destination span{font-size:9px;flex:0 0 auto;color:#a5bbb7;border:1px solid #36544e;border-radius:5px;padding:2px 6px}.result-footer{margin-top:auto;border-top:1px solid #2a414b;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:8px;color:#7e9ba8;font-size:9px}.copy-button{background:#1b3441;color:#bdeed9;border:1px solid #3c605a;border-radius:7px;font-weight:700;font-size:10px;padding:7px 9px;white-space:nowrap}.copy-button:hover{background:#25493f}.next-step{border:1px solid #314d56;background:#122b33;border-radius:15px;display:flex;align-items:center;gap:19px;padding:21px 24px;margin-top:22px}.next-step-icon{width:42px;height:42px;flex:0 0 42px;border-radius:12px;background:#21473e;display:grid;place-items:center;color:#b0eccf;font-size:23px}.next-step h3{font-size:13px;margin:0 0 4px}.next-step p{font-size:11px;line-height:1.7;color:#99b2bc;margin:0;max-width:700px}.next-step-link{color:#a8e6cd;border:0;background:transparent;font-size:11px;font-weight:750;white-space:nowrap;margin-left:auto}.next-step-link:hover{text-decoration:underline}.bottom-note{color:#7896a4;font-size:10px;margin:23px 0 0;text-align:center}.bottom-note span{color:#89d8b7;margin-right:5px}.main-footer{padding:19px clamp(24px,4.5vw,70px);border-top:1px solid #1d3540;display:flex;justify-content:space-between;gap:12px;letter-spacing:1.4px;font-size:9px;font-weight:800;color:#527482}.page-title{padding:22px 0 27px}.page-title h1{font-size:clamp(32px,4.7vw,56px);line-height:1.1;letter-spacing:-2px;margin:12px 0 15px}.page-title>p:not(.mini-label){font-size:14px;color:#9cb5c0;max-width:670px}.scenario-list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.scenario-card,.check-item,.about-card{background:#10232f;border:1px solid #2c454f;border-radius:19px;padding:25px}.scenario-card .scenario-number{font-weight:800;color:#8ee5c3;font-size:11px;letter-spacing:1.5px}.scenario-card h3{font-size:21px;letter-spacing:-.55px;margin:18px 0 9px}.scenario-card p{font-size:12px;color:#a1bac4;line-height:1.8}.scenario-preview{background:#0b1a26;border:1px solid #2a3c46;border-radius:9px;padding:16px;min-height:148px;white-space:pre-line;overflow-wrap:anywhere;font-size:12px!important}.scenario-open{border:1px solid #4e7a6d;background:#1d433a;color:#a9eed2;border-radius:9px;padding:10px 14px;font-weight:700;font-size:12px;margin-top:15px}.scenario-open:hover{background:#2c5d4c}.lesson-banner{background:#12342f;border:1px solid #347364;border-radius:17px;padding:27px;margin-top:26px}.lesson-banner h3{margin:0 0 6px}.lesson-banner p{margin:0;color:#a4cac1;font-size:13px}.checklist-grid,.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.check-number{font-size:11px;color:#8ee5c3;font-weight:800;letter-spacing:1.1px}.check-item h3,.about-card h3{font-size:18px;letter-spacing:-.5px;margin:17px 0 10px}.check-item p,.about-card p{font-size:12px;color:#99b4bf;line-height:1.85;margin:0}.about-grid{grid-template-columns:repeat(2,1fr)}.about-emoji{font-size:35px;color:var(--mint)}.toast{position:fixed;right:26px;bottom:26px;background:#8de4c2;color:#102c23;border-radius:10px;font-size:12px;font-weight:750;padding:12px 18px;box-shadow:0 12px 38px #0008;opacity:0;transform:translateY(13px);transition:opacity .2s,transform .2s;pointer-events:none;z-index:10}.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:1350px){.app-shell{grid-template-columns:228px minmax(0,1fr)}.hero{padding:32px}.hero-art{min-width:180px;width:215px}.art-shield{left:18px}.art-orbit{right:-18px}.section-meta{display:none}.example-pill{padding:8px}.panel-header,.result-body{padding-left:18px;padding-right:18px}textarea{margin-left:18px;margin-right:18px;width:calc(100% - 36px)}.field-label,.sample-title{margin-left:18px}.divider-line{margin-left:18px;margin-right:18px}.example-row,.input-actions{margin-left:18px;margin-right:18px}.result-footer{padding-left:18px;padding-right:18px}}
+@media(max-width:1050px){.app-shell{grid-template-columns:1fr}.sidebar{height:auto;min-height:0;position:relative;padding:16px 24px;flex-direction:row;align-items:center;gap:26px;border-right:none;border-bottom:1px solid #1d3540}.brand{padding:0;white-space:nowrap}.brand small,.side-label,.sidebar-bottom{display:none}.nav-menu{flex:1;flex-direction:row;justify-content:flex-end;flex-wrap:wrap;gap:5px}.nav-item{width:auto;padding:10px 11px;gap:6px;white-space:nowrap}.nav-item>span:first-child{font-size:17px;width:19px}.nav-arrow{display:none}.topbar{height:58px}.workspace-grid{gap:14px}}
+@media(max-width:830px){.hero-art{display:none}.hero{min-height:0}.workspace-grid,.checklist-grid,.scenario-list{grid-template-columns:1fr}.checklist-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.about-grid{grid-template-columns:1fr 1fr}.next-step{flex-wrap:wrap}.next-step-link{margin:0 0 0 60px}.sidebar{display:block}.brand{margin-bottom:12px}.nav-menu{justify-content:space-between}.nav-item{flex:1;justify-content:center}.nav-item>span:first-child{display:none}}
+@media(max-width:600px){.sidebar{padding:14px}.nav-item{font-size:10px;padding:9px 6px}.topbar{padding:0 17px}.top-privacy{display:none}.main-footer{padding:18px;flex-wrap:wrap}main{padding:22px 16px 38px}.hero{padding:25px 21px;border-radius:18px}.hero h1{font-size:39px;letter-spacing:-1.9px}.hero-copy>p{font-size:12px}.hero-chips{gap:7px}.section-head{margin-top:28px}.section-head h2{font-size:22px}.panel-header{padding-top:18px}.result-footer{align-items:flex-start;flex-wrap:wrap}.checklist-grid,.about-grid{grid-template-columns:1fr}.page-title h1{font-size:38px}.next-step{padding:17px}.next-step-link{margin:0}.section-head p:not(.mini-label){font-size:12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+</style>
+  <title>SafeSignal — A second opinion before you click</title>
+  <script type="module">
+/**
+ * SafeSignal 2026. Local, deterministic warning signs. This is education,
+ * not domain reputation, malware scanning, or a promise of message safety.
+ */
+const MAX_CHARS = 12000;
+const SHORTENERS = new Set(['bit.ly','tinyurl.com','t.co','ow.ly','is.gd','buff.ly','rebrand.ly','cutt.ly','tiny.cc','rb.gy']);
+const BRANDS = [
+  ['PayPal', 'paypal.com'], ['Amazon', 'amazon.com'], ['Microsoft', 'microsoft.com'],
+  ['Apple', 'apple.com'], ['Netflix', 'netflix.com'], ['Google', 'google.com'],
+  ['Instagram', 'instagram.com'], ['WhatsApp', 'whatsapp.com'], ['DHL', 'dhl.com'],
+];
+const DEFAULT_ACTIONS = [
+  'Do not click links or call numbers in the message.',
+  'Open the official app or type the known website address yourself.',
+  'Never share passwords or one-time verification codes.',
+  'If you acted already, change your password through the official site and contact the provider.',
+];
+
+function extractUrls(text) {
+  const found = [];
+  const re = /(?:https?:\/\/|www\.)[^\s<>"'\u201c\u201d]+/gi;
+  for (const match of text.matchAll(re)) {
+    const raw = match[0].replace(/[.,!?)\]}]+$/g, '');
+    try {
+      const url = new URL(raw.startsWith('www.') ? 'https://' + raw : raw);
+      if (!['http:', 'https:'].includes(url.protocol)) continue;
+      const host = url.hostname.toLowerCase().replace(/\.$/, '');
+      if (found.some(u => u.host === host && u.protocol === url.protocol && u.hasUserInfo === Boolean(url.username || url.password))) continue;
+      found.push({ host, protocol: url.protocol.replace(':', '').toUpperCase(), hasUserInfo: Boolean(url.username || url.password) });
+    } catch { /* Malformed input is deliberately not dereferenced. */ }
+    if (found.length >= 20) break;
+  }
+  return found;
+}
+
+function isOfficialHost(host, official) {
+  return host === official || host.endsWith('.' + official);
+}
+
+function emptyResult() {
+  return {
+    level: 'empty', label: 'Ready when you are',
+    summary: 'Paste a message or choose a practice example to see an explanation.',
+    findings: [], urls: [], actions: DEFAULT_ACTIONS,
+  };
+}
+
+function analyzeMessage(message) {
+  const text = String(message ?? '').slice(0, MAX_CHARS).trim();
+  if (!text) return emptyResult();
+  const findings = [];
+  const push = (id, title, description, weight) => {
+    if (!findings.some(f => f.id === id)) findings.push({ id, title, description, weight });
+  };
+  const urls = extractUrls(text);
+  if (/\b(urgent|immediately|act now|right away|limited time|expires? today|within (?:the next )?(?:12|24|48) hours?|suspended|frozen|locked|last warning)\b/i.test(text)) {
+    push('urgency', 'Pressure to act quickly', 'Scam messages often create a false deadline to bypass careful decisions.', 2);
+  }
+  if (/\b(passwords?|passcodes?|one[- ]time (?:code|password)|verification codes?|security codes?|\bOTP\b|PIN(?: code)?|sign[ -]?in details|login credentials|social security number|bank account details)\b/i.test(text)) {
+    push('credentials', 'Sensitive information requested', 'Treat requests for passwords, codes or account details as a major warning sign.', 3);
+  }
+  if (/\b(gift cards?|wire transfer|bank transfer|cryptocurrency|bitcoin|send (?:us |me )?money|pay (?:a |the )?fee|payment required|transfer funds)\b/i.test(text)) {
+    push('money', 'Money or payment pressure', 'Requests for gift cards, transfers or unusual payment methods deserve independent verification.', 3);
+  }
+  if (/\b(keep (?:this|it) secret|do not tell anyone|don't tell anyone|without informing|confidential from)\b/i.test(text)) {
+    push('secrecy', 'Request for secrecy', 'Legitimate services generally do not need you to conceal account or payment actions.', 2);
+  }
+  if (/\b(open (?:the |this )?attachment|download (?:the |this )?(?:document|file|invoice)|install (?:this |the )?app)\b/i.test(text)) {
+    push('unexpected-file', 'Unexpected file or install request', 'Do not open unexpected attachments or install software from an unverified message.', 2);
+  }
+  if (urls.length > 0) {
+    if (urls.some(u => u.protocol === 'HTTP')) push('non-https', 'Unencrypted website link', 'An HTTP link lacks HTTPS encryption. HTTPS alone is not proof of legitimacy either.', 1);
+    if (urls.some(u => SHORTENERS.has(u.host))) push('shortened-link', 'Shortened destination', 'URL shorteners hide the final destination; do not follow them to find out.', 2);
+    if (urls.some(u => /^\d{1,3}(?:\.\d{1,3}){3}$/.test(u.host) || u.host.startsWith('['))) push('ip-address-link', 'Numerical website address', 'Most legitimate consumer sign-in pages do not ask you to sign in at a raw IP address.', 3);
+    if (urls.some(u => u.hasUserInfo)) push('userinfo-link', 'Deceptive @ in a link', 'Anything before @ can be a distraction. The actual destination is the host displayed below.', 3);
+    if (urls.some(u => u.host.includes('xn--'))) push('punycode-link', 'Encoded website name', 'This address contains an encoded internationalized domain, which can sometimes imitate familiar names.', 2);
+    const named = BRANDS.filter(([name]) => new RegExp('\\b' + name + '\\b', 'i').test(text));
+    if (named.length && urls.some(u => named.every(([, official]) => !isOfficialHost(u.host, official)))) {
+      push('brand-mismatch', 'Mentioned brand and link do not match', 'The message names a familiar service, but its link does not point to that service\'s usual domain.', 3);
+    }
+  }
+  const score = findings.reduce((sum, f) => sum + f.weight, 0);
+  const level = score >= 5 ? 'high' : score >= 2 ? 'medium' : 'low';
+  const states = {
+    high: ['Higher concern', 'Several warning signs matched. Avoid acting through this message; verify independently.'],
+    medium: ['Take a closer look', 'Some warning signs matched. Verify independently before taking any action.'],
+    low: ['Fewer known signs', 'No significant warning signs matched. This is not proof the message is safe.'],
+  };
+  return { level, label: states[level][0], summary: states[level][1], findings, urls, actions: DEFAULT_ACTIONS };
+}
+
+const PRACTICE_EXAMPLES = Object.freeze([
+  {
+    id: 'delivery',
+    title: 'Missed delivery',
+    type: 'Parcel text',
+    text: 'URGENT: Your parcel delivery has been suspended. Verify your details within 24 hours: https://delivery-confirm.example/track',
+  },
+  {
+    id: 'account',
+    title: 'Account warning',
+    type: 'Fake account alert',
+    text: 'PayPal: Your account is locked! Enter your password and one-time code immediately at https://paypa1-security.example/login to restore access.',
+  },
+  {
+    id: 'ordinary',
+    title: 'Everyday message',
+    type: 'Compare the signals',
+    text: 'Hi! See you at the library on Thursday at 3. Bring the notes if you can.',
+  },
+]);
+
+
+const $ = id => document.getElementById(id);
+const views = ['workspace', 'practice', 'checklist', 'about'];
+const titles = { workspace: 'MESSAGE CHECKER', practice: 'PRACTICE SCENARIOS', checklist: 'SAFETY CHECKLIST', about: 'HOW IT WORKS' };
+const textInput = $('message-input');
+let lastResult = null;
+let toastTimer;
+
+function notify(message) {
+  const node = $('toast');
+  node.textContent = message;
+  node.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => node.classList.remove('show'), 2600);
+}
+
+function showView(name) {
+  if (!views.includes(name)) return;
+  for (const view of views) $('view-' + view).hidden = view !== name;
+  document.querySelectorAll('[data-view]').forEach(button => {
+    const active = button.dataset.view === name;
+    button.classList.toggle('active', active);
+    if (active) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
+  $('page-label').textContent = titles[name];
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) window.scrollTo(0, 0);
+  else window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setText(text, exampleId) {
+  textInput.value = text;
+  $('char-count').textContent = text.length.toLocaleString('en-US') + ' / 12,000';
+  document.querySelectorAll('[data-example]').forEach(button => {
+    button.classList.toggle('selected', button.dataset.example === exampleId);
+  });
+}
+
+function renderFinding(item) {
+  const row = document.createElement('div');
+  row.className = 'finding';
+  const icon = document.createElement('span'); icon.className = 'finding-indicator'; icon.textContent = '◇'; icon.setAttribute('aria-hidden', 'true');
+  const content = document.createElement('div');
+  const heading = document.createElement('h5'); heading.textContent = item.title;
+  const desc = document.createElement('p'); desc.textContent = item.description;
+  content.append(heading, desc); row.append(icon, content);
+  return row;
+}
+
+function renderResult(result) {
+  lastResult = result;
+  const banner = $('risk-banner');
+  banner.className = 'risk-banner risk-' + result.level;
+  $('risk-eyebrow').textContent = result.level === 'empty' ? 'READY TO REVIEW' : result.level === 'low' ? 'NO STRONG MATCHES' : 'CHECK THESE SIGNALS';
+  $('risk-title').textContent = result.label;
+  $('risk-summary').textContent = result.summary;
+  banner.querySelector('.status-glyph').textContent = result.level === 'high' ? '!' : result.level === 'medium' ? '?' : result.level === 'low' ? '✓' : '◌';
+  $('finding-count').textContent = result.findings.length + ' matched';
+  const findings = $('finding-list'); findings.replaceChildren();
+  if (!result.findings.length) {
+    const el = document.createElement('p'); el.className = 'empty-finding';
+    el.textContent = result.level === 'empty' ? 'Your observations will appear here after checking a message.' : 'No configured warning rules matched this message. Always verify independently.';
+    findings.append(el);
+  } else result.findings.forEach(f => findings.append(renderFinding(f)));
+  const urls = $('url-list'); urls.replaceChildren();
+  if (!result.urls.length) {
+    const el = document.createElement('p'); el.className = 'empty-finding'; el.textContent = 'No website destinations detected.'; urls.append(el);
+  } else result.urls.forEach(u => {
+    const el = document.createElement('div'); el.className = 'destination';
+    const host = document.createElement('strong'); host.textContent = u.host;
+    const protocol = document.createElement('span'); protocol.textContent = u.protocol + (u.hasUserInfo ? ' · @ used' : '');
+    el.append(host, protocol); urls.append(el);
+  });
+}
+
+function analyze() {
+  const result = analyzeMessage(textInput.value);
+  renderResult(result);
+  if (result.level === 'empty') { notify('Add a message to begin.'); textInput.focus(); }
+}
+
+function useExample(id) {
+  const match = PRACTICE_EXAMPLES.find(item => item.id === id);
+  if (!match) return;
+  showView('workspace');
+  setText(match.text, id);
+  analyze();
+  notify('Fictional practice example loaded.');
+}
+
+function buildPractice() {
+  for (let i = 0; i < PRACTICE_EXAMPLES.length; i++) {
+    const example = PRACTICE_EXAMPLES[i];
+    const card = document.createElement('article'); card.className = 'scenario-card';
+    const num = document.createElement('div'); num.className = 'scenario-number'; num.textContent = 'SCENARIO 0' + (i + 1);
+    const title = document.createElement('h3'); title.textContent = example.title;
+    const subtitle = document.createElement('p'); subtitle.textContent = example.type;
+    const preview = document.createElement('p'); preview.className = 'scenario-preview'; preview.textContent = example.text;
+    const button = document.createElement('button'); button.className = 'scenario-open'; button.textContent = 'Inspect this message →'; button.addEventListener('click', () => useExample(example.id));
+    card.append(num, title, subtitle, preview, button); $('practice-list').append(card);
+  }
+}
+
+function copyGuidance() {
+  if (!lastResult || lastResult.level === 'empty') { notify('Check a message first.'); return; }
+  const guidance = [
+    'SafeSignal — General safety guidance (no original message included)',
+    'Caution: ' + lastResult.label,
+    lastResult.summary,
+    'Reasons: ' + (lastResult.findings.map(f => f.title).join('; ') || 'No configured warning signs matched'),
+    'Next steps:', ...lastResult.actions.map((action, i) => (i + 1) + '. ' + action),
+    'Limit: This is an educational, rule-based check, not a safety certification.',
+  ].join('\n');
+  if (!navigator.clipboard?.writeText) { notify('Clipboard access unavailable in this browser.'); return; }
+  navigator.clipboard.writeText(guidance).then(() => notify('Guidance copied without message text.')).catch(() => notify('Clipboard permission denied.'));
+}
+
+document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => showView(button.dataset.view)));
+document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => showView(button.dataset.go)));
+document.querySelectorAll('[data-example]').forEach(button => button.addEventListener('click', () => useExample(button.dataset.example)));
+textInput.addEventListener('input', () => {
+  $('char-count').textContent = textInput.value.length.toLocaleString('en-US') + ' / 12,000';
+  document.querySelectorAll('[data-example]').forEach(button => button.classList.remove('selected'));
+});
+$('analyze-button').addEventListener('click', analyze);
+$('clear-button').addEventListener('click', () => { setText('', null); renderResult(analyzeMessage('')); textInput.focus(); notify('Message removed from this workspace.'); });
+$('copy-button').addEventListener('click', copyGuidance);
+buildPractice();
+setText(PRACTICE_EXAMPLES[0].text, PRACTICE_EXAMPLES[0].id);
+renderResult(analyzeMessage(textInput.value));
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('/sw.js').catch(() => {});
+
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="App navigation">
+      <div class="brand"><div class="brand-symbol" aria-hidden="true"><svg viewBox="0 0 30 30" fill="none"><path d="m15 2 11 4v8c0 7.5-4.3 11.8-11 14-6.7-2.2-11-6.5-11-14V6l11-4Z" stroke="currentColor" stroke-width="1.9"/><path d="m10 15 3.5 3.5L21 11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><strong>SafeSignal<span class="brand-dot">.</span></strong><small>Clarity before action</small></div></div>
+      <p class="side-label">YOUR WORKSPACE</p>
+      <nav class="nav-menu" aria-label="Main sections">
+        <button class="nav-item active" data-view="workspace" type="button" aria-current="page"><span aria-hidden="true">⌕</span><span>Message checker</span><span class="nav-arrow" aria-hidden="true">›</span></button>
+        <button class="nav-item" data-view="practice" type="button"><span aria-hidden="true">▦</span><span>Practice scenarios</span></button>
+        <button class="nav-item" data-view="checklist" type="button"><span aria-hidden="true">✓</span><span>Safety checklist</span></button>
+        <button class="nav-item" data-view="about" type="button"><span aria-hidden="true">ⓘ</span><span>How it works</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="privacy-tile"><span class="privacy-symbol" aria-hidden="true">✧</span><p class="privacy-kicker">BUILT FOR PRIVACY</p><h3>Your message stays yours.</h3><p>Analysis happens in your browser. No accounts, analytics or message uploads.</p><div class="privacy-tile-foot"><span class="dot-online"></span> Local by design</div></div>
+        <p class="side-footer">Open-source educational prototype<br>SafeSpace Hacks · October 2026</p>
+      </div>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar"><div class="breadcrumbs"><span class="crumb-muted">SAFETY STUDIO</span><span aria-hidden="true">/</span><strong id="page-label">MESSAGE CHECKER</strong></div><div class="top-actions"><span class="top-privacy"><span class="dot-online"></span>On-device analysis</span><span class="avatar" aria-label="Safety workspace">S</span></div></header>
+      <main id="main" tabindex="-1">
+        <section class="view" id="view-workspace" aria-label="Message checker">
+          <div class="hero">
+            <div class="hero-copy"><div class="eyebrow"><span class="sparkle" aria-hidden="true">✦</span> THE SAFER WAY TO DECIDE</div><h1>Not sure about<br>that <em>message?</em></h1><p>A second opinion before your next click. Spot common warning signs, understand why they matter, and choose a safer next step.</p><div class="hero-chips"><span><i class="check-icon" aria-hidden="true">✓</i> 100% local analysis</span><span><i class="check-icon" aria-hidden="true">✓</i> No sign-up required</span></div></div>
+            <div class="hero-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-shadow"></div><div class="art-shield"><svg viewBox="0 0 164 176" fill="none"><path d="M82 7 149 30v48c0 46-25 74-67 90C40 152 15 124 15 78V30L82 7Z" fill="#88EAC4" fill-opacity=".10" stroke="#88EAC4" stroke-width="3"/><path d="m53 87 20 21 41-46" stroke="#88EAC4" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="orbit-spark orbit-spark-one">✦</span><span class="orbit-spark orbit-spark-two">✧</span><div class="art-floating">KEEP YOUR<br><strong>CALM & CHECK</strong></div></div>
+          </div>
+
+          <div class="section-head"><div><p class="mini-label">01 — INTERACTIVE CHECKER</p><h2>Let's take a closer look.</h2><p>Paste a text, email or chat message below. Remove personal details first.</p></div><div class="section-meta"><span class="small-mark">↗</span> Transparent, rule-based analysis</div></div>
+
+          <div class="workspace-grid">
+            <article class="panel input-panel"><div class="panel-header"><div class="panel-icon lilac-icon" aria-hidden="true">✎</div><div><h3>The message</h3><p>What did you receive?</p></div><div class="panel-right"><span class="step-tag">INPUT</span></div></div><label for="message-input" class="field-label">MESSAGE CONTENT</label><textarea id="message-input" maxlength="12000" rows="7" spellcheck="false" placeholder="Paste the message here..." aria-describedby="message-privacy"></textarea><div class="input-bottom"><span id="message-privacy">🔒 Analyzed in this browser only</span><span id="char-count" aria-live="polite">0 / 12,000</span></div><div class="divider-line"></div><div class="sample-title">QUICK START: TRY A FICTIONAL EXAMPLE</div><div class="example-row" id="example-buttons"><button type="button" class="example-pill selected" data-example="delivery">📦 Delivery text</button><button type="button" class="example-pill" data-example="account">🔑 Account alert</button><button type="button" class="example-pill" data-example="ordinary">💬 Regular message</button></div><div class="input-actions"><button type="button" class="button-reset" id="clear-button">Clear</button><button type="button" class="button-primary" id="analyze-button"><span aria-hidden="true">✧</span> Check message <span aria-hidden="true">→</span></button></div></article>
+
+            <article class="panel output-panel" id="output-panel" aria-live="polite" aria-atomic="false"><div class="panel-header"><div class="panel-icon mint-icon" aria-hidden="true">◎</div><div><h3>Your safety snapshot</h3><p>Understand the signs, not just a score.</p></div><div class="panel-right"><span class="step-tag">RESULT</span></div></div><div class="result-body"><div id="risk-banner" class="risk-banner risk-empty"><div class="status-glyph" aria-hidden="true">◌</div><div class="risk-copy"><span id="risk-eyebrow">READY TO REVIEW</span><h4 id="risk-title">Ready when you are</h4><p id="risk-summary">Choose an example or paste a message to see the signs.</p></div></div><div class="result-headline"><strong>Signs worth noticing</strong><span id="finding-count">0 matched</span></div><div id="finding-list" class="finding-list"><p class="empty-finding">Your observations will appear here after checking a message.</p></div><div class="result-headline destinations-heading"><strong>Link destinations</strong><span class="neutral-hint">Display only · Never opened</span></div><div id="url-list" class="url-list"><p class="empty-finding">No website destinations to display.</p></div></div><div class="result-footer"><span>ⓘ Not a guarantee of safety or fraud detection.</span><button id="copy-button" type="button" class="copy-button" aria-label="Copy safety guidance without original message">↗ Copy guidance</button></div></article>
+          </div>
+
+          <div class="next-step"><div class="next-step-icon">↳</div><div><h3>When in doubt, verify somewhere else.</h3><p>Open the official app or type the address you already know. Never use a contact detail or link supplied only by a suspicious message.</p></div><button type="button" class="next-step-link" data-go="checklist">View safety checklist <span aria-hidden="true">→</span></button></div>
+          <div class="bottom-note"><span aria-hidden="true">✳</span> SafeSignal is educational. It may miss sophisticated scams or flag legitimate messages. You make the final decision.</div>
+        </section>
+
+        <section class="view" id="view-practice" aria-label="Practice scenarios" hidden><div class="page-title"><p class="mini-label">02 — PRACTICE SCENARIOS</p><h1>Practice makes <em>safer.</em></h1><p>Try three entirely fictional examples. Learn what to notice before a high-pressure moment.</p></div><div class="scenario-list" id="practice-list"></div><div class="lesson-banner"><h3>Recognize the pattern, not just the brand.</h3><p>Even a familiar sender name can be faked. Verify requests using a channel you already trust.</p></div></section>
+        <section class="view" id="view-checklist" aria-label="Safety checklist" hidden><div class="page-title"><p class="mini-label">03 — SAFETY CHECKLIST</p><h1>Your pause-before-click <em>playbook.</em></h1><p>A simple repeatable checklist. Keep it handy for unexpected messages and requests.</p></div><div class="checklist-grid"><div class="check-item"><span class="check-number">01</span><h3>Pause the pressure</h3><p>Be skeptical of urgent deadlines, emotional threats or offers that sound too good to be true.</p></div><div class="check-item"><span class="check-number">02</span><h3>Inspect the destination</h3><p>Read the real website host, especially when the address uses shorteners, IP numbers or an @ symbol.</p></div><div class="check-item"><span class="check-number">03</span><h3>Verify independently</h3><p>Open an official app or type the organization's site yourself. Don't call numbers supplied only in the message.</p></div><div class="check-item"><span class="check-number">04</span><h3>Protect your credentials</h3><p>Never send passwords, one-time codes or sensitive documents in response to unsolicited requests.</p></div><div class="check-item"><span class="check-number">05</span><h3>Ask a trusted person</h3><p>If you're uncertain, get a second opinion using a separate and trusted communication channel.</p></div><div class="check-item"><span class="check-number">06</span><h3>Act if you already clicked</h3><p>Stop sharing information. Use the genuine app to reset exposed passwords and contact the provider if needed.</p></div></div><div class="lesson-banner"><h3>This checklist works without an internet connection.</h3><p>After your first visit, SafeSignal caches its interface and guidance locally in supported browsers.</p></div></section>
+        <section class="view" id="view-about" aria-label="How it works" hidden><div class="page-title"><p class="mini-label">04 — DESIGN WITH TRUST</p><h1>Clarity, not <em>false confidence.</em></h1><p>Built for the SafeSpace Hacks 2026 challenge. Transparent technology and clear limits.</p></div><div class="about-grid"><article class="about-card"><span class="about-emoji">⚙</span><h3>What happens</h3><p>Small, deterministic rules examine language and visible URL hosts for common warning signs. Every matched rule produces a plain-language explanation.</p></article><article class="about-card"><span class="about-emoji">⌁</span><h3>What stays private</h3><p>Your pasted message remains in this browser tab's memory. No cloud classification, sign-in, cookie, analytics, database or saved message history.</p></article><article class="about-card"><span class="about-emoji">◈</span><h3>What we cannot tell</h3><p>We don't visit links, check live reputation, identify real senders or scan attachments. Novel scams can be missed and ordinary messages can trigger warnings.</p></article><article class="about-card"><span class="about-emoji">☆</span><h3>What matters</h3><p>The safer outcome is a pause to independently verify before clicking or sharing sensitive information, not a numerical prediction.</p></article></div><div class="lesson-banner"><h3>Project credits</h3><p>Original 2026 project design, interface and deterministic rule implementation; generated with ChatGPT assistance. Built with vanilla HTML, CSS and JavaScript. No external libraries or scraped user data.</p></div></section>
+      </main>
+      <footer class="main-footer"><span>SAFESIGNAL / SAFESPACE HACKS 2026</span><span>Think twice. Stay in control.</span></footer>
+    </div>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
