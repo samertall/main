@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="710" viewBox="0 0 1200 710" role="img" aria-labelledby="title desc">
+<title id="title">AccessBeacon AWS serverless architecture</title>
+<desc id="desc">Browser connects through API Gateway to an application Lambda. Application Lambda reads and writes DynamoDB and starts a Step Functions state machine that invokes classification and persistence Lambda functions. Persistence Lambda writes classified reports into DynamoDB.</desc>
+<rect width="1200" height="710" fill="#0d1727"/>
+<text x="65" y="72" font-family="Arial,sans-serif" font-weight="700" font-size="38" fill="#fff">AccessBeacon</text>
+<text x="65" y="115" font-family="Arial,sans-serif" font-size="22" fill="#bac9d9">AWS serverless accessibility triage architecture</text>
+<g stroke="#87d7bd" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M240 236 H293"/><path d="M287 229 L295 236 L287 243"/>
+<path d="M512 236 H564"/><path d="M557 229 L565 236 L557 243"/>
+<path d="M780 236 H830"/><path d="M822 229 L831 236 L822 243"/>
+<path d="M673 305 V398"/><path d="M666 390 L673 400 L680 390"/>
+<path d="M522 474 H469"/><path d="M477 467 L468 474 L477 481"/>
+<path d="M254 548 V606 H971 V303"/><path d="M964 312 L971 302 L978 312"/>
+<path d="M781 474 H829"/><path d="M822 467 L830 474 L822 481"/>
+</g>
+<g font-family="Arial,sans-serif">
+<rect x="50" y="175" rx="16" width="190" height="122" fill="#1c3047" stroke="#55718f" stroke-width="2"/>
+<text x="145" y="227" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">Browser</text><text x="145" y="257" text-anchor="middle" font-size="17" fill="#d3dfec">User dashboard</text>
+<rect x="295" y="175" rx="16" width="217" height="122" fill="#1c3047" stroke="#55718f" stroke-width="2"/>
+<text x="403" y="218" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">API Gateway</text><text x="403" y="247" text-anchor="middle" font-size="17" fill="#d3dfec">HTTP API</text><text x="403" y="269" text-anchor="middle" font-size="15" fill="#d3dfec">Public routes</text>
+<rect x="565" y="175" rx="16" width="215" height="122" fill="#174a5d" stroke="#34c5b5" stroke-width="2"/>
+<text x="672" y="219" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">AWS Lambda</text><text x="672" y="250" text-anchor="middle" font-size="17" fill="#def8f0">App handler</text><text x="672" y="271" text-anchor="middle" font-size="15" fill="#def8f0">Validation + API</text>
+<rect x="830" y="175" rx="16" width="320" height="122" fill="#3c365f" stroke="#aa96ff" stroke-width="2"/>
+<text x="990" y="218" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">Amazon DynamoDB</text><text x="990" y="247" text-anchor="middle" font-size="17" fill="#ebe7ff">Accessibility reports</text><text x="990" y="268" text-anchor="middle" font-size="15" fill="#ebe7ff">On-demand + demo TTL</text>
+<rect x="522" y="400" rx="16" width="259" height="148" fill="#263d45" stroke="#9ad18b" stroke-width="2"/>
+<text x="652" y="445" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">AWS Step Functions</text><text x="652" y="475" text-anchor="middle" font-size="18" fill="#e6f8da">Orchestrate triage</text><text x="652" y="501" text-anchor="middle" font-size="15" fill="#d4e9d6">Retry + human-review fallback</text>
+<rect x="50" y="400" rx="16" width="419" height="148" fill="#174a5d" stroke="#34c5b5" stroke-width="2"/>
+<text x="260" y="447" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">Classification Lambda</text><text x="260" y="478" text-anchor="middle" font-size="17" fill="#def8f0">Explainable impact scoring</text><text x="260" y="505" text-anchor="middle" font-size="17" fill="#def8f0">Suggested WCAG guidance</text>
+<rect x="830" y="400" rx="16" width="320" height="148" fill="#174a5d" stroke="#34c5b5" stroke-width="2"/>
+<text x="990" y="447" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">Persistence Lambda</text><text x="990" y="479" text-anchor="middle" font-size="17" fill="#def8f0">Save classified decision</text><text x="990" y="505" text-anchor="middle" font-size="17" fill="#def8f0">or human-review state</text>
+<text x="65" y="661" font-size="19" fill="#b5cbd3">Deployed with AWS SAM / CloudFormation · eu-north-1</text>
+<text x="1145" y="660" text-anchor="end" font-size="18" fill="#b5cbd3">No dedicated servers or deployment pipeline</text>
+</g>
+</svg>
