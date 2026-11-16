@@ -1,0 +1,32 @@
+{
+  "Comment": "Two-step deterministic triage. The fallback keeps failed classifications visible for human review.",
+  "StartAt": "Classify accessibility impact",
+  "States": {
+    "Classify accessibility impact": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {"FunctionName": "${ClassifyArn}", "Payload.$": "$"},
+      "ResultSelector": {"decision.$": "$.Payload"},
+      "ResultPath": "$.triage",
+      "Retry": [{"ErrorEquals": ["Lambda.ServiceException", "Lambda.AWSLambdaException", "Lambda.SdkClientException"], "IntervalSeconds": 2, "BackoffRate": 2, "MaxAttempts": 2}],
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "Needs human review"}],
+      "Next": "Persist triage decision"
+    },
+    "Persist triage decision": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "${PersistArn}",
+        "Payload": {"reportId.$": "$.reportId", "decision.$": "$.triage.decision"}
+      },
+      "Retry": [{"ErrorEquals": ["Lambda.ServiceException", "Lambda.AWSLambdaException", "Lambda.SdkClientException"], "IntervalSeconds": 2, "BackoffRate": 2, "MaxAttempts": 2}],
+      "End": true
+    },
+    "Needs human review": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {"FunctionName": "${PersistArn}", "Payload": {"reportId.$": "$.reportId"}},
+      "End": true
+    }
+  }
+}
