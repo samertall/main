@@ -1,0 +1,107 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AccessBeacon - accessible incident triage with zero servers to manage
+Globals:
+  Function:
+    Runtime: python3.12
+    Architectures: [arm64]
+    Timeout: 12
+    MemorySize: 128
+Resources:
+  PublicApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: '$default'
+  ReportsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      TimeToLiveSpecification:
+        AttributeName: expiresAt
+        Enabled: true
+      SSESpecification:
+        SSEEnabled: true
+  AppFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: app.handler
+      Environment:
+        Variables:
+          REPORTS_TABLE: !Ref ReportsTable
+          TRIAGE_FLOW_ARN: !Ref TriageFlow
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ReportsTable
+        - Statement:
+            - Effect: Allow
+              Action: states:StartExecution
+              Resource: !Ref TriageFlow
+      Events:
+        Index:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /, Method: GET}
+        Styles:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /styles.css, Method: GET}
+        Script:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /app.js, Method: GET}
+        Health:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /health, Method: GET}
+        ListReports:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /reports, Method: GET}
+        CreateReport:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /reports, Method: POST}
+        ReadReport:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /reports/{id}, Method: GET}
+        UpdateReport:
+          Type: HttpApi
+          Properties: {ApiId: !Ref PublicApi, Path: /reports/{id}, Method: PATCH}
+  ClassifyFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: triage.handler
+  PersistFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: persist.handler
+      Environment:
+        Variables:
+          REPORTS_TABLE: !Ref ReportsTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref ReportsTable
+  TriageFlow:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionUri: workflow/triage.asl.json
+      DefinitionSubstitutions:
+        ClassifyArn: !GetAtt ClassifyFunction.Arn
+        PersistArn: !GetAtt PersistFunction.Arn
+      Policies:
+        - LambdaInvokePolicy:
+            FunctionName: !Ref ClassifyFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref PersistFunction
+      Type: STANDARD
+Outputs:
+  AppUrl:
+    Description: Public live app and API, served by API Gateway and AWS Lambda
+    Value: !Sub 'https://${PublicApi}.execute-api.${AWS::Region}.${AWS::URLSuffix}/'
+  ReportsTableName:
+    Value: !Ref ReportsTable
+  TriageFlowArn:
+    Value: !Ref TriageFlow
