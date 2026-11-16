@@ -64,10 +64,10 @@ Resources:
           Properties: {ApiId: !Ref PublicApi, Path: /reports, Method: POST}
         ReadReport:
           Type: HttpApi
-          Properties: {ApiId: !Ref PublicApi, Path: /reports/{id}, Method: GET}
+          Properties: {ApiId: !Ref PublicApi, Path: '/reports/{id}', Method: GET}
         UpdateReport:
           Type: HttpApi
-          Properties: {ApiId: !Ref PublicApi, Path: /reports/{id}, Method: PATCH}
+          Properties: {ApiId: !Ref PublicApi, Path: '/reports/{id}', Method: PATCH}
   ClassifyFunction:
     Type: AWS::Serverless::Function
     Properties:
