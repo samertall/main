@@ -5,9 +5,10 @@ AccessBeacon helps product teams report, prioritize, and resolve accessibility b
 ## Public project links
 
 - Source: https://github.com/samertall/main/tree/main/accessbeacon
-- Interactive frontend preview: https://accessbeacon-weekend.vercel.app/
+- **Deployed AWS application:** https://mhfdvhmqqg.execute-api.eu-north-1.amazonaws.com/
+- Interactive frontend-only preview: https://accessbeacon-weekend.vercel.app/
 
-**Deployment status:** The Vercel preview works with browser-local data only. It is NOT connected to AWS. The AWS stack is supplied as deployable source but has not been deployed or verified from this account.
+**Deployment status (November 16, 2026):** The `accessbeacon-weekend` CloudFormation stack was successfully created in `eu-north-1`, according to the AWS SAM output. The public URL above was returned by the CloudFormation `AppUrl` output. End-to-end public HTTP health checks and the user workflow must still be verified. The Vercel preview uses browser-local data and is not connected to AWS.
 
 ## AWS infrastructure
 
